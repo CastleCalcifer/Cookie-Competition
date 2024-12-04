@@ -1,5 +1,5 @@
 const selectedOptions = Array(3).fill('');
-document.querySelector(".rankDropdown").addEventListener('change', e => {
+document.querySelector(".row").addEventListener('change', e => {
   const selects = document.querySelectorAll('select');
   selectedOptions[e.target.id] = e.target.value;
   [...selects].forEach(select => {
