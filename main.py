@@ -17,7 +17,6 @@ Migrate(app, db)
 
 with app.app_context():
     db.create_all()
-    cookie = Cookie.query.filter_by(cookie_name="Chocolate Chip").first()
         
 @app.route('/', methods=["GET", "POST"])
 def index():
