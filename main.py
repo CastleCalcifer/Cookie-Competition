@@ -3,7 +3,7 @@ import os
 from flask_migrate import Migrate
 from databaseModels import db
 from flask import Flask, render_template, redirect, url_for, request
-
+from forms import VotingForm
 
 app = Flask(__name__)
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -18,11 +18,13 @@ Migrate(app, db)
 with app.app_context():
     db.create_all()
     
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def index():
-
-    return render_template('index.html')
+    form = VotingForm()
+    # if form.validate_on_submit():
+    #     cookie1 = form.cookie1.data
+    return render_template('index.html', form=form)
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port="5000")
+    app.run(host="0.0.0.0", port="5000", debug=True)

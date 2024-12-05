@@ -19,9 +19,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    {% block content %}
     <h2>Voting</h2>
-    <form>
+    <form action = "#" method = "POST">
     <div class="row">
+        {{form.hidden_tag()}}
         <div class="d-flex flex-column justify-content-center align-items-center cookieOption">
             <div class="p-2">
                 <h2> Chocolate Chip</h2>
@@ -29,14 +31,8 @@
             </div>
             <div class="d-inline-flex p-2">
                 <div class="rankDropdown">
-                    <select name="" id="1" class="form-select" aria-label="Default select example">
-                        <option selected>---</option>
-                        <option value="1" class="ranking">1st</option>
-                        <option value="2" class="ranking">2nd</option>
-                        <option value="3" class="ranking">3rd</option>
-                        <option value="4" class="ranking">4th</option>
-                        <option value="5" class="ranking">5th</option>
-                    </select>
+                    {{form.cookie1.label}}
+                    {{ form.cookie1(class_="form-select")}}
                 </div>
             </div>
         </div>
@@ -47,14 +43,8 @@
             </div>
             <div class="p-2">
                 <div class="rankDropdown">
-                    <select name="" id="2" class="form-select" aria-label="Default select example">
-                        <option selected>---</option>
-                        <option value="1" class="ranking">1st</option>
-                        <option value="2" class="ranking">2nd</option>
-                        <option value="3" class="ranking">3rd</option>
-                        <option value="4" class="ranking">4th</option>
-                        <option value="5" class="ranking">5th</option>
-                    </select>
+                    {{form.cookie2.label}}
+                    {{ form.cookie2(class_="form-select")}}
                 </div>
             </div>
         </div>
@@ -65,14 +55,8 @@
             </div>
             <div class="p-2">
                 <div class="rankDropdown">
-                    <select name="" id="3" class="form-select" aria-label="Default select example">
-                        <option selected>---</option>
-                        <option value="1" class="ranking">1st</option>
-                        <option value="2" class="ranking">2nd</option>
-                        <option value="3" class="ranking">3rd</option>
-                        <option value="4" class="ranking">4th</option>
-                        <option value="5" class="ranking">5th</option>
-                    </select>
+                    {{form.cookie3.label}}
+                    {{ form.cookie3(class_="form-select")}}
                 </div>
             </div>
         </div>
@@ -83,14 +67,8 @@
             </div>
             <div class="p-2">
                 <div class="rankDropdown">
-                    <select name="" id="4" class="form-select" aria-label="Default select example">
-                        <option selected>---</option>
-                        <option value="1" class="ranking">1st</option>
-                        <option value="2" class="ranking">2nd</option>
-                        <option value="3" class="ranking">3rd</option>
-                        <option value="4" class="ranking">4th</option>
-                        <option value="5" class="ranking">5th</option>
-                    </select>
+                    {{form.cookie4.label}}
+                    {{ form.cookie4(class_="form-select")}}
                 </div>
             </div>
         </div>
@@ -101,23 +79,18 @@
             </div>
             <div class="p-2">
                 <div class="rankDropdown">
-                    <select name="" id="5" class="form-select" aria-label="Default select example">
-                        <option selected>---</option>
-                        <option value="1" class="ranking">1st</option>
-                        <option value="2" class="ranking">2nd</option>
-                        <option value="3" class="ranking">3rd</option>
-                        <option value="4" class="ranking">4th</option>
-                        <option value="5" class="ranking">5th</option>
-                    </select>
-                </div>
+                    {{form.cookie5.label}}
+                    {{ form.cookie5(class_="form-select")}}
             </div>
         </div>
         <div class="d-flex flex-column justify-content-center align-items-center cookieOption">
-            <input class="btn btn-primary" type="submit" value="Submit">
+            {{form.submit.label}}
+            {{form.submit(class_="btn btn-primary")}}
         </div>
     </div>
 </form>
     <script src="/static/uniqueSelect.js"></script>
+    {% endblock %}
 </body>
 
 </html>
