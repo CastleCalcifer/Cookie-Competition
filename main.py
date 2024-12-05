@@ -18,6 +18,13 @@ Migrate(app, db)
 with app.app_context():
     db.create_all()
     cookie = Cookie.query.filter_by(cookie_name="Chocolate Chip").first()
+    if not cookie:
+        db.session.add(Cookie(cookie_name="Chocolate Chip", year=2024, image="https://assets.bonappetit.com/photos/5ca534485e96521ff23b382b/1:1/w_2560%2Cc_limit/chocolate-chip-cookie.jpg"))
+        db.session.add(Cookie(cookie_name="Gingerbread", year=2024, image="https://www.thepkpway.com/wp-content/uploads/2017/12/gingerbread-cookies-3f.jpg"))
+        db.session.add(Cookie(cookie_name="Sugar", year=2024, image="https://thelittlevintagebakingcompany.com/wp-content/uploads/2023/03/Sprinkle-Sugar-Cookies-15.jpg"))
+        db.session.add(Cookie(cookie_name="Oreo", year=2024, image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh4k251xFF_9ijySYa4PoRBwdRDOixcZmkhw&s"))
+        db.session.add(Cookie(cookie_name="Red Velvet", year=2024, image="https://bakingamoment.com/wp-content/uploads/2023/12/IMG_0082-red-velvet-chocolate-chip-cookies.jpg"))
+        db.session.commit()
         
 @app.route('/', methods=["GET", "POST"])
 def index():
