@@ -20,9 +20,15 @@ with app.app_context():
     
 @app.route('/', methods=["GET", "POST"])
 def index():
-    form = VotingForm()
-    # if form.validate_on_submit():
-    #     cookie1 = form.cookie1.data
+    form:VotingForm = VotingForm()      
+    if form.validate_on_submit():
+        cookieList = [form.cookie1.data, form.cookie2.data, form.cookie3.data, form.cookie4.data, form.cookie5.data]
+        for i in cookieList:
+            print(i)
+    cookieList = [form.cookie1.data, form.cookie2.data, form.cookie3.data, form.cookie4.data, form.cookie5.data]
+    for i in cookieList:
+        print(i)
+    print(form.errors)
     return render_template('index.html', form=form)
 
 
