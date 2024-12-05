@@ -32,15 +32,9 @@ def index():
     yearly_cookies:list[Cookie] = db.session.query(Cookie).filter(Cookie.year==2024).all()
     if form.validate_on_submit():
         results:list[str] = [form.cookie1.data, form.cookie2.data, form.cookie3.data, form.cookie4.data, form.cookie5.data]
-        for i in results:
-            print(i)
-        for j in yearly_cookies:
-            print(j)
-        yearly_cookies[0].score = Cookie.score + parseVote(results[0])
-        yearly_cookies[1].score = Cookie.score + parseVote(results[1])
-        yearly_cookies[2].score = Cookie.score + parseVote(results[2])
-        yearly_cookies[3].score = Cookie.score + parseVote(results[3])
-        yearly_cookies[4].score = Cookie.score + parseVote(results[4])
+        for i in range(len(yearly_cookies)):
+            yearly_cookies[i].score = Cookie.score + parseVote(results[i])
+
         db.session.commit()
         return render_template('results.html')
     else:
