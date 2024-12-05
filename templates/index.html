@@ -30,60 +30,55 @@
         {{ form.csrf_token }}
         <div class="d-flex flex-column justify-content-center align-items-center cookieOption">
             <div class="p-2">
-                <h2> Chocolate Chip</h2>
-                <img src="https://assets.bonappetit.com/photos/5ca534485e96521ff23b382b/1:1/w_2560%2Cc_limit/chocolate-chip-cookie.jpg">
+                <h2> {{cookie1_name}}</h2>
+                <img src="{{cookie1_image}}">
             </div>
             <div class="d-inline-flex p-2">
                 <div class="rankDropdown">
-                    {{form.cookie1.label}}
                     {{ form.cookie1(class_="form-select")}}
                 </div>
             </div>
         </div>
         <div class="d-flex flex-column justify-content-center align-items-center cookieOption">
             <div class="p-2">
-                <h2> Gingerbread</h2>
-                <img class = "col-12" src="https://www.thepkpway.com/wp-content/uploads/2017/12/gingerbread-cookies-3f.jpg">
+                <h2> {{cookie2_name}}</h2>
+                <img src="{{cookie2_image}}">
             </div>
             <div class="p-2">
                 <div class="rankDropdown">
-                    {{form.cookie2.label}}
                     {{ form.cookie2(class_="form-select")}}
                 </div>
             </div>
         </div>
         <div class="d-flex flex-column justify-content-center align-items-center cookieOption">
             <div class="p-2">
-                <h2> Sugar </h2>
-                <img src="https://thelittlevintagebakingcompany.com/wp-content/uploads/2023/03/Sprinkle-Sugar-Cookies-15.jpg">
+                <h2> {{cookie3_name}}</h2>
+                <img src="{{cookie3_image}}">
             </div>
             <div class="p-2">
                 <div class="rankDropdown">
-                    {{form.cookie3.label}}
                     {{ form.cookie3(class_="form-select")}}
                 </div>
             </div>
         </div>
         <div class="d-flex flex-column justify-content-center align-items-center cookieOption">
             <div class="p-2">
-                <h2> Oreo </h2>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh4k251xFF_9ijySYa4PoRBwdRDOixcZmkhw&s">
+                <h2> {{cookie4_name}}</h2>
+                <img src="{{cookie4_image}}">
             </div>
             <div class="p-2">
                 <div class="rankDropdown">
-                    {{form.cookie4.label}}
                     {{ form.cookie4(class_="form-select")}}
                 </div>
             </div>
         </div>
         <div class="d-flex flex-column justify-content-center align-items-center cookieOption">
             <div class="p-2">
-                <h2> Red Velvet</h2>
-                <img src="https://bakingamoment.com/wp-content/uploads/2023/12/IMG_0082-red-velvet-chocolate-chip-cookies.jpg">
+                <h2> {{cookie5_name}}</h2>
+                <img src="{{cookie5_image}}">
             </div>
             <div class="p-2">
                 <div class="rankDropdown">
-                    {{form.cookie5.label}}
                     {{ form.cookie5(class_="form-select")}}
             </div>
         </div>
