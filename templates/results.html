@@ -15,6 +15,46 @@
 </head>
 
 <body>
-    <h1>Thanks for voting</h1>
+    {% block content %}
+    <h2>Results</h2>
+    <div class="row">
+            <div class="d-flex flex-column justify-content-center align-items-center cookieOption">
+                <div class="p-2">
+                    <h2> 1st Place </h2>
+                    <h2> {{cookie1_name}}</h2>
+                    <img src="{{cookie1_image}}">
+                </div>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center cookieOption">
+                <div class="p-2">
+                    <h2> 2nd Place </h2>
+                    <h2> {{cookie2_name}}</h2>
+                    <img src="{{cookie2_image}}">
+                </div>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center cookieOption">
+                <div class="p-2">
+                    <h2> 3rd Place </h2>
+                    <h2> {{cookie3_name}}</h2>
+                    <img src="{{cookie3_image}}">
+                </div>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center cookieOption">
+                <div class="p-2">
+                    <h2> 4th Place </h2>
+                    <h2> {{cookie4_name}}</h2>
+                    <img src="{{cookie4_image}}">
+                </div>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center cookieOption">
+                <div class="p-2">
+                    <h2> 5th Place </h2>
+                    <h2> {{cookie5_name}}</h2>
+                    <img src="{{cookie5_image}}">
+                </div>
+            </div>
+    </div>
+    <script src="/static/uniqueSelect.js"></script>
+    {% endblock %}
 </body>
 </html>

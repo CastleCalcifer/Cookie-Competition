@@ -24,9 +24,6 @@
     {% block content %}
     <h2>Voting</h2>
     <div class="row">
-        <div class="d-flex flex-column justify-content-center align-items-center cookieOption">
-            <button id="resetButton" class="btn btn-secondary" onclick="reset()" type="button">Reset Fields</button>
-        </div>
         <form action="#" method="POST">
             {{form.hidden_tag()}}
             {{ form.csrf_token }}

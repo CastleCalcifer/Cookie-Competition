@@ -1,6 +1,7 @@
 import os
 
 from flask_migrate import Migrate
+from sqlalchemy import desc
 from databaseModels import db, Cookie
 from flask import Flask, render_template, redirect, url_for, request
 from forms import VotingForm
@@ -35,13 +36,20 @@ def index():
         for i in range(len(yearly_cookies)):
             yearly_cookies[i].score = Cookie.score + parseVote(results[i])
         db.session.commit()
-        return render_template('results.html')
+        return redirect(url_for("results"))
     else:
         print(form.errors)
         yearly_cookies = db.session.query(Cookie).filter(Cookie.year==2024).all()
         return render_template('index.html', cookie1_name=yearly_cookies[0].cookie_name, cookie1_image=yearly_cookies[0].image, cookie2_name=yearly_cookies[1].cookie_name, cookie2_image=yearly_cookies[1].image,
                                 cookie3_name= yearly_cookies[2].cookie_name, cookie3_image= yearly_cookies[2].image, cookie4_name=yearly_cookies[3].cookie_name, cookie4_image=yearly_cookies[3].image,
                                 cookie5_name=yearly_cookies[4].cookie_name, cookie5_image=yearly_cookies[4].image, form=form)
+
+@app.route("/results")
+def results():
+    rankings = db.session.query(Cookie).filter(Cookie.year == 2024).order_by(desc(Cookie.score)).all()
+    return render_template('results.html', cookie1_name=rankings[0].cookie_name, cookie1_image=rankings[0].image, cookie2_name=rankings[1].cookie_name, cookie2_image=rankings[1].image,
+                                cookie3_name= rankings[2].cookie_name, cookie3_image= rankings[2].image, cookie4_name=rankings[3].cookie_name, cookie4_image=rankings[3].image,
+                                cookie5_name=rankings[4].cookie_name, cookie5_image=rankings[4].image)
 
 if __name__ == "__main__":
     
