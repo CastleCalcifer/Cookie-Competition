@@ -17,6 +17,7 @@
 </head>
 
 <body>
+    {% extends "base.html" %}
     <script src="/static/reset.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -30,7 +31,7 @@
             <div class="d-flex flex-column justify-content-center align-items-center cookieOption">
                 <div class="p-2">
                     <h2> {{cookie1_name}}</h2>
-                    <img src="{{cookie1_image}}">
+                    <img src="{{cookie1_image}}" class="cookieImage">
                 </div>
                 <div class="d-inline-flex p-2">
                     <div class="rankDropdown">
@@ -41,7 +42,7 @@
             <div class="d-flex flex-column justify-content-center align-items-center cookieOption">
                 <div class="p-2">
                     <h2> {{cookie2_name}}</h2>
-                    <img src="{{cookie2_image}}">
+                    <img src="{{cookie2_image}}" class="cookieImage">
                 </div>
                 <div class="p-2">
                     <div class="rankDropdown">
@@ -52,7 +53,7 @@
             <div class="d-flex flex-column justify-content-center align-items-center cookieOption">
                 <div class="p-2">
                     <h2> {{cookie3_name}}</h2>
-                    <img src="{{cookie3_image}}">
+                    <img src="{{cookie3_image}}" class="cookieImage">
                 </div>
                 <div class="p-2">
                     <div class="rankDropdown">
@@ -63,7 +64,7 @@
             <div class="d-flex flex-column justify-content-center align-items-center cookieOption">
                 <div class="p-2">
                     <h2> {{cookie4_name}}</h2>
-                    <img src="{{cookie4_image}}">
+                    <img src="{{cookie4_image}}" class="cookieImage">
                 </div>
                 <div class="p-2">
                     <div class="rankDropdown">
@@ -74,7 +75,7 @@
             <div class="d-flex flex-column justify-content-center align-items-center cookieOption">
                 <div class="p-2">
                     <h2> {{cookie5_name}}</h2>
-                    <img src="{{cookie5_image}}">
+                    <img src="{{cookie5_image}}" class="cookieImage">
                 </div>
                 <div class="p-2">
                     <div class="rankDropdown">

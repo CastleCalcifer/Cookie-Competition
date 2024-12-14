@@ -14,6 +14,25 @@ h2{
     
 }
 
+.navigation{
+    display: inline-block;
+    padding-left: 80px;
+    
+}
+
+.headerText{
+    padding-right: 68px;
+    text-align: right;
+    font-family: Alata;
+    font-weight:300;
+    font-size: 18px;
+}
+
+.header{
+    background-color: lightblue;
+    height: 80px;
+}
+
 .row::after {
     content: "";
     clear: both;
@@ -26,6 +45,12 @@ h2{
 [class*="col-"] {
     float: left;
     padding: 15px;
+}
+
+.cookieImage{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* For mobile phones: */
