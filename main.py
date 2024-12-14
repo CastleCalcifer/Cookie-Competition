@@ -4,7 +4,7 @@ from flask_migrate import Migrate
 from sqlalchemy import desc
 from databaseModels import db, Cookie
 from flask import Flask, render_template, redirect, url_for, request
-from forms import VotingForm
+from forms import VotingForm, AwardsForm
 from utilities import parseVote
 
 app = Flask(__name__)
@@ -18,9 +18,9 @@ Migrate(app, db)
 
 with app.app_context():
     db.create_all()
-    cookie = Cookie.query.filter_by(cookie_name="Chocolate Chip w/ Cream cheese icing").first()
+    cookie = Cookie.query.filter_by(cookie_name="Iced Chocolate Chip").first()
     if not cookie:
-        db.session.add(Cookie(cookie_name="Chocolate Chip w/ Cream cheese icing", year=2024, image="https://assets.bonappetit.com/photos/5ca534485e96521ff23b382b/1:1/w_2560%2Cc_limit/chocolate-chip-cookie.jpg"))
+        db.session.add(Cookie(cookie_name="Iced Chocolate Chip", year=2024, image="https://assets.bonappetit.com/photos/5ca534485e96521ff23b382b/1:1/w_2560%2Cc_limit/chocolate-chip-cookie.jpg"))
         db.session.add(Cookie(cookie_name="Gingerbread Royal Cream", year=2024, image="https://www.thepkpway.com/wp-content/uploads/2017/12/gingerbread-cookies-3f.jpg"))
         db.session.add(Cookie(cookie_name="Tiramisu Cookie", year=2024, image="https://thelittlevintagebakingcompany.com/wp-content/uploads/2023/03/Sprinkle-Sugar-Cookies-15.jpg"))
         db.session.add(Cookie(cookie_name="Italian ricotta", year=2024, image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh4k251xFF_9ijySYa4PoRBwdRDOixcZmkhw&s"))
@@ -54,6 +54,12 @@ def results():
                            cookie3_name= rankings[2].cookie_name, cookie3_image= rankings[2].image, cookie3_score = rankings[2].score,
                            cookie4_name=rankings[3].cookie_name, cookie4_image=rankings[3].image, cookie4_score = rankings[3].score,
                            cookie5_name=rankings[4].cookie_name, cookie5_image=rankings[4].image, cookie5_score = rankings[4].score,) 
+
+@app.route("/awards")
+def awards():
+    form:AwardsForm = AwardsForm()
+    return render_template("awards.html", form=form)
+
 
 if __name__ == "__main__":
     

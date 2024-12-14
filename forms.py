@@ -9,3 +9,8 @@ class VotingForm(FlaskForm):
     cookie4 = SelectField(id="4",choices=[("---"), ("1st"), ("2nd"), ("3rd"), ("4th"), ("5th")])
     cookie5 = SelectField(id="5",choices=[("---"), ("1st"), ("2nd"), ("3rd"), ("4th"), ("5th")])
     submit = SubmitField("Submit Vote", id="submitButton")
+    
+class AwardsForm(FlaskForm):
+    most_creative = SelectField(id="0", choices =[("---"), ("Iced Chocolate Chip"), ("Gingerbread Royal Cream"), ("Tiramisu Cookie"), ("Italian Ricotta"), ("Red Velvet")])
+    best_presentation = SelectField(id="1", choices =[("---"), ("Iced Chocolate Chip"), ("Gingerbread Royal Cream"), ("Tiramisu Cookie"), ("Italian Ricotta"), ("Red Velvet")])
+    submit = SubmitField("Submit Vote", id="submitButton")
