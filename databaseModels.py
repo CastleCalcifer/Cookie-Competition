@@ -12,6 +12,9 @@ class Cookie(db.Model):
     # baker_id = db.Column(db.Integer, db.ForeignKey('Baker.id'))
     year = db.Column(db.Integer)
     image = db.Column(db.Text)
+    # creative_points = db.Column(db.Integer)
+    # presentation_points = db.Column(db.Integer)
+
     def __init__(self, cookie_name:str, year:int, image:str):
         self.cookie_name = cookie_name
         self.score = 0

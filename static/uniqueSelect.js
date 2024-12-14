@@ -10,7 +10,7 @@ document.querySelector('form').addEventListener('change', e => { //waits for cha
           option.style.display = "none";
         }
         else if(!selectedOptions.includes(option.value)){ //if not, restore it
-          option.style.display = "block"
+          option.style.display = "block";
         }
       });
     }
