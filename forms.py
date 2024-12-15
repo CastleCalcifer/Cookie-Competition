@@ -11,6 +11,6 @@ class VotingForm(FlaskForm):
     submit = SubmitField("Submit Vote", id="submitButton")
     
 class AwardsForm(FlaskForm):
-    most_creative = SelectField(id="0", choices =[("---"), ("Iced Chocolate Chip"), ("Gingerbread Royal Cream"), ("Tiramisu Cookie"), ("Italian Ricotta"), ("Red Velvet")])
-    best_presentation = SelectField(id="1", choices =[("---"), ("Iced Chocolate Chip"), ("Gingerbread Royal Cream"), ("Tiramisu Cookie"), ("Italian Ricotta"), ("Red Velvet")])
+    most_creative = SelectField(id="awardDropdown0", choices =[("---"), ("Iced Chocolate Chip"), ("Gingerbread Royal Cream"), ("Tiramisu Cookie"), ("Italian Ricotta"), ("Red Velvet")])
+    best_presentation = SelectField(id="awardDropdown1", choices =[("---"), ("Iced Chocolate Chip"), ("Gingerbread Royal Cream"), ("Tiramisu Cookie"), ("Italian Ricotta"), ("Red Velvet")])
     submit = SubmitField("Submit Vote", id="submitButton")

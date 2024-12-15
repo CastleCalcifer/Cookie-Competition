@@ -30,10 +30,10 @@
             <div class="d-flex flex-column justify-content-center align-items-center cookieOption">
                 <div class="p-2">
                     <h2> Most Creative </h2>
-                    <img src="https://www.jocooks.com/wp-content/uploads/2021/12/sugar-cookies-1-17.jpg" class="award1">
+                    <img src="https://www.jocooks.com/wp-content/uploads/2021/12/sugar-cookies-1-17.jpg" id="awardImage0">
                 </div>
                 <div class="d-inline-flex p-2">
-                    <div class="awardDropdown">
+                    <div class="awardDropdown" id="0">
                         {{ form.most_creative(class_="form-select")}}
                     </div>
                 </div>
@@ -41,10 +41,10 @@
             <div class="d-flex flex-column justify-content-center align-items-center cookieOption">
                 <div class="p-2">
                     <h2> Best Presentation</h2>
-                    <img src="https://www.jocooks.com/wp-content/uploads/2021/12/sugar-cookies-1-17.jpg" class="award1">
+                    <img src="https://www.jocooks.com/wp-content/uploads/2021/12/sugar-cookies-1-17.jpg" id="awardImage1">
                 </div>
                 <div class="p-2">
-                    <div class="awardDropdown">
+                    <div class="awardDropdown" id="1">
                         {{ form.best_presentation(class_="form-select")}}
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                 </div>
         </form>
     </div>
-    <script src="/static/uniqueSelect.js"></script>
+    <script src="/static/imageChange.js"></script>
     {% endblock %}
 </body>
 
