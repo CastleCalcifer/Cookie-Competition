@@ -26,13 +26,19 @@ h1, h2{
     padding-left: 600px;
 }
 
+.tagLine{
+    padding-top: 30px;
+}
 .menuItem{
     background-color: burlywood;
     justify-content: center;
+    margin-bottom: 75px;
 }
+
 .container{
     padding-top: 100px;
 }
+
 .headerText{
     padding-right: 68px;
     text-align: right;

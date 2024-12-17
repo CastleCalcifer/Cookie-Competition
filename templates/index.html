@@ -10,14 +10,16 @@
     {% block content %}
     {{super()}}
     <h1>Welcome to the Annual <br> Carlile Family <br> Cookie Competition</h1>
+    <div class="tagLine">
     <h2>Where we take sibling rivalry too far</h2>
+</div>
     <div class="container d-flex mx-auto justify-content-center gap-5">
         <div class="d-grid gap-5 col-6 mx-auto">
         <div class="menuItem">
-            <a class="w-100 btn btn-lg p-5" href="#" role="button">Voting</a>
+            <a class="w-100 btn btn-lg p-5" href="{{url_for('voting')}}" role="button">Voting</a>
         </div>
         <div class="menuItem">
-            <a class="w-100 btn btn-lg p-5" href="#" role="button">Results</a>
+            <a class="w-100 btn btn-lg p-5" href="{{url_for('results')}}" role="button">Results</a>
         </div>
         </div>
 </div>
