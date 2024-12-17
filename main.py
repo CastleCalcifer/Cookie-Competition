@@ -28,8 +28,13 @@ with app.app_context():
         db.session.commit()
         
         
-@app.route('/', methods=["GET", "POST"])
+@app.route('/')
 def index():
+    return render_template('index.html')
+
+
+@app.route('/voting', methods=["GET", "POST"])
+def voting():
     form:VotingForm = VotingForm()      
     yearly_cookies:list[Cookie] = db.session.query(Cookie).filter(Cookie.year==2024).all()
     if form.validate_on_submit():
@@ -41,7 +46,7 @@ def index():
     else:
         print(form.errors)
         yearly_cookies = db.session.query(Cookie).filter(Cookie.year==2024).all()
-        return render_template('index.html', cookie1_name=yearly_cookies[0].cookie_name, cookie1_image=yearly_cookies[0].image, cookie2_name=yearly_cookies[1].cookie_name, cookie2_image=yearly_cookies[1].image,
+        return render_template('voting.html', cookie1_name=yearly_cookies[0].cookie_name, cookie1_image=yearly_cookies[0].image, cookie2_name=yearly_cookies[1].cookie_name, cookie2_image=yearly_cookies[1].image,
                                 cookie3_name= yearly_cookies[2].cookie_name, cookie3_image= yearly_cookies[2].image, cookie4_name=yearly_cookies[3].cookie_name, cookie4_image=yearly_cookies[3].image,
                                 cookie5_name=yearly_cookies[4].cookie_name, cookie5_image=yearly_cookies[4].image, form=form)
 
