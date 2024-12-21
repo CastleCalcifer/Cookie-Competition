@@ -20,11 +20,11 @@ with app.app_context():
     db.create_all()
     cookie = Cookie.query.filter_by(cookie_name="Iced Chocolate Chip").first()
     if not cookie:
-        db.session.add(Cookie(cookie_name="Iced Chocolate Chip", year=2024, image="https://assets.bonappetit.com/photos/5ca534485e96521ff23b382b/1:1/w_2560%2Cc_limit/chocolate-chip-cookie.jpg"))
-        db.session.add(Cookie(cookie_name="Gingerbread Royal Cream", year=2024, image="https://www.thepkpway.com/wp-content/uploads/2017/12/gingerbread-cookies-3f.jpg"))
-        db.session.add(Cookie(cookie_name="Tiramisu Cookie", year=2024, image="https://thelittlevintagebakingcompany.com/wp-content/uploads/2023/03/Sprinkle-Sugar-Cookies-15.jpg"))
-        db.session.add(Cookie(cookie_name="Italian ricotta", year=2024, image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh4k251xFF_9ijySYa4PoRBwdRDOixcZmkhw&s"))
-        db.session.add(Cookie(cookie_name="Red Velvet", year=2024, image="https://bakingamoment.com/wp-content/uploads/2023/12/IMG_0082-red-velvet-chocolate-chip-cookies.jpg"))
+        db.session.add(Cookie(cookie_name="Iced Chocolate Chip", year=2024, image="https://assets.bonappetit.com/photos/5ca534485e96521ff23b382b/1:1/w_2560%2Cc_limit/chocolate-chip-cookie.jpg", presentation_points= 0, creative_points= 0))
+        db.session.add(Cookie(cookie_name="Gingerbread Royal Cream", year=2024, image="https://www.thepkpway.com/wp-content/uploads/2017/12/gingerbread-cookies-3f.jpg", presentation_points= 0, creative_points= 0))
+        db.session.add(Cookie(cookie_name="Tiramisu Cookie", year=2024, image="https://thelittlevintagebakingcompany.com/wp-content/uploads/2023/03/Sprinkle-Sugar-Cookies-15.jpg", presentation_points= 0, creative_points= 0))
+        db.session.add(Cookie(cookie_name="Italian ricotta", year=2024, image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh4k251xFF_9ijySYa4PoRBwdRDOixcZmkhw&s", presentation_points= 0, creative_points= 0))
+        db.session.add(Cookie(cookie_name="Red Velvet", year=2024, image="https://bakingamoment.com/wp-content/uploads/2023/12/IMG_0082-red-velvet-chocolate-chip-cookies.jpg", presentation_points= 0, creative_points= 0))
         db.session.commit()
         
         
@@ -55,9 +55,22 @@ def results():
                            cookie4_name=rankings[3].cookie_name, cookie4_image=rankings[3].image, cookie4_score = rankings[3].score,
                            cookie5_name=rankings[4].cookie_name, cookie5_image=rankings[4].image, cookie5_score = rankings[4].score,) 
 
-@app.route("/awards")
+@app.route("/awards", methods=["GET", "POST"])
 def awards():
     form:AwardsForm = AwardsForm()
+    if form.validate_on_submit():
+        results = [form.best_presentation.data, form.most_creative.data]
+        print(results)
+        yearly_cookies:list[Cookie] = db.session.query(Cookie).filter(Cookie.year==2024).all()
+        for cookie in yearly_cookies:
+            if results[0] == cookie.cookie_name:
+                cookie.creative_points = Cookie.creative_points + 1
+                print(cookie)
+            if results[1] == cookie.cookie_name:
+                cookie.presentation_points = Cookie.presentation_points + 1
+                print(cookie)
+        db.session.commit()
+        return redirect(url_for("results"))
     return render_template("awards.html", form=form)
 
 
