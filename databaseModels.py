@@ -12,8 +12,8 @@ class Cookie(db.Model):
     baker_name = db.Column(db.Text)
     year = db.Column(db.Integer)
     image = db.Column(db.Text)
-    # creative_points = db.Column(db.Integer)
-    # presentation_points = db.Column(db.Integer)
+    creative_points = db.Column(db.Integer)
+    presentation_points = db.Column(db.Integer)
 
     def __init__(self, cookie_name:str, year:int, image:str, baker_name:str):
         self.cookie_name = cookie_name
@@ -21,6 +21,8 @@ class Cookie(db.Model):
         self.baker_name = baker_name
         self.year = year
         self.image = image
+        self.creative_points = 0
+        self. presentation_points = 0
         
         
     def __repr__(self):

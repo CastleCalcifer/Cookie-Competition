@@ -41,7 +41,7 @@ def voting():
         for i in range(len(yearly_cookies)):
             yearly_cookies[i].score = Cookie.score + parseVote(results[i])
         db.session.commit()
-        return redirect(url_for("results"))
+        return redirect(url_for("awards"))
     else:
         print(form.errors)
         return render_template('voting.html', cookie1_name=yearly_cookies[0].cookie_name.upper(), cookie1_image=yearly_cookies[0].image, 
@@ -59,9 +59,22 @@ def results():
                            cookie3_name= rankings[2].cookie_name.upper(), cookie3_image= rankings[2].image, cookie3_score = rankings[2].score,
                            cookie4_name=rankings[3].cookie_name.upper(), cookie4_image=rankings[3].image, cookie4_score = rankings[3].score) 
 
-@app.route("/awards")
+@app.route("/awards", methods=["GET", "POST"])
 def awards():
     form:AwardsForm = AwardsForm()
+    if form.validate_on_submit():
+        results = [form.best_presentation.data, form.most_creative.data]
+        print(results)
+        yearly_cookies:list[Cookie] = db.session.query(Cookie).filter(Cookie.year==2024).all()
+        for cookie in yearly_cookies:
+            if results[0] == cookie.cookie_name:
+                cookie.creative_points = Cookie.creative_points + 1
+                print(cookie)
+            if results[1] == cookie.cookie_name:
+                cookie.presentation_points = Cookie.presentation_points + 1
+                print(cookie)
+        db.session.commit()
+        return redirect(url_for("results"))
     return render_template("awards.html", form=form)
 
 @app.route('/bakers', methods=["GET", "POST"])
