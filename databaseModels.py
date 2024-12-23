@@ -9,7 +9,7 @@ class Cookie(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     cookie_name = db.Column(db.Text)
     score = db.Column(db.Integer)
-    # baker_id = db.Column(db.Integer, db.ForeignKey('Baker.id'))
+    baker_name = db.Column(db.Text)
     year = db.Column(db.Integer)
     image = db.Column(db.Text)
     # creative_points = db.Column(db.Integer)
