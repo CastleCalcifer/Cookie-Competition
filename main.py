@@ -23,7 +23,7 @@ with app.app_context():
         db.session.add(Cookie(cookie_name="Chocolate Grocery Store", year=2024, baker_name="Christopher", image="https://assets.bonappetit.com/photos/5ca534485e96521ff23b382b/1:1/w_2560%2Cc_limit/chocolate-chip-cookie.jpg"))
         db.session.add(Cookie(cookie_name="Gingerbread Royal Cream", year=2024, baker_name="Michael", image="https://www.thepkpway.com/wp-content/uploads/2017/12/gingerbread-cookies-3f.jpg"))
         db.session.add(Cookie(cookie_name="Tiramisu Cookie", year=2024, baker_name="Maria", image="https://thelittlevintagebakingcompany.com/wp-content/uploads/2023/03/Sprinkle-Sugar-Cookies-15.jpg"))
-        db.session.add(Cookie(cookie_name="Italian ricotta", year=2024, baker_name="Bridget", image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh4k251xFF_9ijySYa4PoRBwdRDOixcZmkhw&s"))
+        db.session.add(Cookie(cookie_name="Italian Ricotta", year=2024, baker_name="Bridget", image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh4k251xFF_9ijySYa4PoRBwdRDOixcZmkhw&s"))
         db.session.commit()
         
         
@@ -62,6 +62,8 @@ def results():
 @app.route("/awards", methods=["GET", "POST"])
 def awards():
     form:AwardsForm = AwardsForm()
+    baker_cookie = db.session.query(Cookie).filter(Cookie.year == 2024).filter(Cookie.baker_name == session["baker"]).first()
+    print(baker_cookie)
     if form.validate_on_submit():
         results = [form.best_presentation.data, form.most_creative.data]
         print(results)
@@ -75,7 +77,7 @@ def awards():
                 print(cookie)
         db.session.commit()
         return redirect(url_for("results"))
-    return render_template("awards.html", form=form)
+    return render_template("awards.html", baker_cookie=baker_cookie.cookie_name, form=form)
 
 @app.route('/bakers', methods=["GET", "POST"])
 def bakers():
@@ -98,7 +100,7 @@ def bakervoting():
         for i in range(len(yearly_cookies)):
             yearly_cookies[i].score = Cookie.score + parseVote(results[i])
         db.session.commit()
-        return redirect(url_for("results"))
+        return redirect(url_for("awards"))
     else:
         print(form.errors)
         for i in yearly_cookies:

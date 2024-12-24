@@ -17,8 +17,8 @@ class BakerVotingForm(FlaskForm):
     
 
 class AwardsForm(FlaskForm):
-    most_creative = SelectField(id="awardDropdown0", choices =[("---"), ("Iced Chocolate Chip"), ("Gingerbread Royal Cream"), ("Tiramisu Cookie"), ("Italian Ricotta"), ("Red Velvet")])
-    best_presentation = SelectField(id="awardDropdown1", choices =[("---"), ("Iced Chocolate Chip"), ("Gingerbread Royal Cream"), ("Tiramisu Cookie"), ("Italian Ricotta"), ("Red Velvet")])
+    most_creative = SelectField(id="awardDropdown0", choices =[("---"), ("Chocolate Grocery Store"), ("Gingerbread Royal Cream"), ("Tiramisu Cookie"), ("Italian Ricotta")])
+    best_presentation = SelectField(id="awardDropdown1", choices =[("---"), ("Chocolate Grocery Store"), ("Gingerbread Royal Cream"), ("Tiramisu Cookie"), ("Italian Ricotta")])
     submit = SubmitField("Submit Vote", id="submitButton")
     
 class BakerForm(FlaskForm):
