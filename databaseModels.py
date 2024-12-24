@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
-
+from flask_admin import Admin, AdminIndexView
+from flask_admin.contrib.sqla import ModelView
 
 db:SQLAlchemy = SQLAlchemy()
 
@@ -28,6 +29,17 @@ class Cookie(db.Model):
     def __repr__(self):
         return f"ID: {self.id} cookie_name: {self.cookie_name} score: {self.score}"
     
+class Year(db.Model):
+    __tablename__ = "Year"
+
+    id = db.Column(db.Integer, primary_key = True)
+    year = db.Column(db.Integer, db.ForeignKey('Cookie.year'))
+    resultsViewable = db.Column(db.Boolean)
+
+    def __init__(self, year:int):
+        self.year = year
+        resultsViewable = False
+
 # class Baker(db.Model):
 #     __tablename__ = "Baker"
     
@@ -35,3 +47,4 @@ class Cookie(db.Model):
 #     baker_name = db.Column(db.Text)
 #     hasVoted = db.Column(db.Boolean)
 #     cookie_id = db.Column(db.Integer, db.ForeignKey('Cookie.id'))
+

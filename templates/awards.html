@@ -13,6 +13,7 @@
         <form action="#" method="POST">
             {{form.hidden_tag()}}
             {{form.csrf_token}}
+            <p hidden id="bakerCookie">{{baker_cookie}}</p> 
             <div class="d-flex flex-column justify-content-center align-items-center cookieOption">
                 <div class="p-2">
                     <h2> Most Creative </h2>
@@ -41,6 +42,7 @@
         </form>
     </div>
     <script src="/static/imageChange.js"></script>
+    <script src="/static/hideCookie.js"></script>
     {% endblock %}
 </body>
 
