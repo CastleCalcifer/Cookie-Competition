@@ -1,4 +1,3 @@
-from wsgiref.validate import validator
 from flask_wtf import FlaskForm
 from wtforms import SelectField, SubmitField, RadioField
 
@@ -17,8 +16,8 @@ class BakerVotingForm(FlaskForm):
     
 
 class AwardsForm(FlaskForm):
-    most_creative = SelectField(id="awardDropdown0", choices =[("---"), ("Chocolate Grocery Store"), ("Gingerbread Royal Cream"), ("Tiramisu Cookie"), ("Italian Ricotta")])
-    best_presentation = SelectField(id="awardDropdown1", choices =[("---"), ("Chocolate Grocery Store"), ("Gingerbread Royal Cream"), ("Tiramisu Cookie"), ("Italian Ricotta")])
+    most_creative = SelectField(id="awardDropdown0", choices =[("---"), ("Chocolate Grocery Store"), ("Gingerbread Royal Icing"), ("Tiramisu Cookie"), ("Italian Ricotta")])
+    best_presentation = SelectField(id="awardDropdown1", choices =[("---"), ("Chocolate Grocery Store"), ("Gingerbread Royal Icing"), ("Tiramisu Cookie"), ("Italian Ricotta")])
     submit = SubmitField("Submit Vote", id="submitButton")
     
 class BakerForm(FlaskForm):

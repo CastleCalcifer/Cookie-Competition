@@ -5,5 +5,7 @@ def parseVote(ranking:str) -> int:
         return 3
     elif ranking == "3rd":
         return 2
-    else:
+    elif ranking == "4th":
         return 1
+    else:
+        return 0

@@ -28,7 +28,7 @@ with app.app_context():
     if not cookie:
         db.session.add(Year(year=2024))
         db.session.add(Cookie(cookie_name="Chocolate Grocery Store", year=2024, baker_name="Christopher", image="https://assets.bonappetit.com/photos/5ca534485e96521ff23b382b/1:1/w_2560%2Cc_limit/chocolate-chip-cookie.jpg"))
-        db.session.add(Cookie(cookie_name="Gingerbread Royal Cream", year=2024, baker_name="Michael", image="https://www.thepkpway.com/wp-content/uploads/2017/12/gingerbread-cookies-3f.jpg"))
+        db.session.add(Cookie(cookie_name="Gingerbread Royal Icing", year=2024, baker_name="Michael", image="https://www.thepkpway.com/wp-content/uploads/2017/12/gingerbread-cookies-3f.jpg"))
         db.session.add(Cookie(cookie_name="Tiramisu Cookie", year=2024, baker_name="Maria", image="https://thelittlevintagebakingcompany.com/wp-content/uploads/2023/03/Sprinkle-Sugar-Cookies-15.jpg"))
         db.session.add(Cookie(cookie_name="Italian Ricotta", year=2024, baker_name="Bridget", image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh4k251xFF_9ijySYa4PoRBwdRDOixcZmkhw&s"))
         db.session.commit()
