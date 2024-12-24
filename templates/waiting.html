@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+
+<head>
+    <title>Home Page</title>
+</head>
+
+<body>
+    {% block content %}
+    {{super()}}
+    <h1>Your rankings have been submitted. <br> Please wait for the results to be released.</h1>
+    {% endblock %}
+</body>
+
+</html>
