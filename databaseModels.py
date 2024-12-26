@@ -39,12 +39,3 @@ class Year(db.Model):
     def __init__(self, year:int):
         self.year = year
         resultsViewable = False
-
-# class Baker(db.Model):
-#     __tablename__ = "Baker"
-    
-#     id = db.Column(db.Integer, primary_key = True)
-#     baker_name = db.Column(db.Text)
-#     hasVoted = db.Column(db.Boolean)
-#     cookie_id = db.Column(db.Integer, db.ForeignKey('Cookie.id'))
-
